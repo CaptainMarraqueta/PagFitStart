@@ -37,11 +37,10 @@
         }
     </script>
     
-    <!-- ESTILOS (CSS) - Aquí está la magia del teléfono y animaciones -->
+    <!-- ESTILOS (CSS) -->
     <style>
         html { scroll-behavior: smooth; }
         
-        /* Animación de entrada */
         .fade-in-up {
             animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
@@ -55,19 +54,18 @@
             }
         }
 
-        /* EL CONTORNO DEL TELÉFONO (Esto es lo que te faltaba) */
         .phone-mockup {
-            border: 8px solid #3f3f46; /* Borde gris oscuro */
+            border: 8px solid #3f3f46;
             border-radius: 40px;
             overflow: hidden;
             position: relative;
             background: #000;
-            box-shadow: 0 0 60px -15px rgba(168, 85, 247, 0.4); /* Resplandor morado */
+            box-shadow: 0 0 60px -15px rgba(168, 85, 247, 0.4);
             aspect-ratio: 9/19;
             width: 100%;
             max-width: 300px;
             margin: 0 auto;
-            z-index: 10; /* Asegura que esté por encima del fondo */
+            z-index: 10;
         }
 
         .phone-notch {
@@ -83,7 +81,6 @@
             z-index: 20;
         }
 
-        /* Fondos abstractos */
         .blob-purple {
             position: absolute;
             background: radial-gradient(circle, rgba(168,85,247,0.3) 0%, rgba(0,0,0,0) 70%);
@@ -157,8 +154,8 @@
                     </p>
                     
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <!-- LINK DE DESCARGA: Asegúrate que href="TU_ARCHIVO.apk" sea correcto -->
-                        <a href="app-release.apk" download class="flex items-center justify-center gap-4 bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition transform hover:-translate-y-1">
+                        <!-- LINK DE DESCARGA: Release de GitHub -->
+                        <a href="https://github.com/CaptainMarraqueta/FitStart/releases/download/v1.0.0/FitStart-1.0.0.apk" download class="flex items-center justify-center gap-4 bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded hover:shadow-[0_0_30px_rgba(168,85,247,0.4)] transition transform hover:-translate-y-1">
                             <i class="fa-brands fa-android text-3xl"></i>
                             <div class="text-left leading-tight">
                                 <div class="text-[10px] uppercase font-bold tracking-wider opacity-80">Descarga Directa</div>
@@ -175,13 +172,9 @@
 
                 <!-- Celular Derecha -->
                 <div class="relative fade-in-up flex justify-center z-10" style="animation-delay: 0.2s;">
-                    <!-- Phone CSS implementation -->
                     <div class="phone-mockup">
                         <div class="phone-notch"></div>
-                        <!-- Screen Content -->
                         <div class="h-full w-full bg-dark-bg overflow-hidden relative font-sans text-white">
-                            
-                            <!-- Header App -->
                             <div class="p-6 pt-12 bg-gradient-to-b from-brand/20 to-transparent">
                                 <div class="flex justify-between items-center mb-6">
                                     <div>
@@ -192,8 +185,6 @@
                                         <i class="fa-solid fa-user text-sm text-gray-400"></i>
                                     </div>
                                 </div>
-                                
-                                <!-- Anillos -->
                                 <div class="flex justify-center py-2 relative">
                                     <div class="w-32 h-32 rounded-full border-8 border-dark-card relative flex items-center justify-center">
                                          <div class="absolute inset-0 rounded-full border-8 border-brand border-l-transparent transform rotate-45"></div>
@@ -204,8 +195,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Cards App -->
                             <div class="px-5 space-y-4">
                                 <div class="bg-dark-card p-4 rounded-2xl border border-white/5 flex items-center gap-4">
                                     <div class="w-10 h-10 rounded bg-brand/10 text-brand flex items-center justify-center">
@@ -228,8 +217,6 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <!-- Bottom Bar -->
                             <div class="absolute bottom-0 w-full bg-dark-card/90 backdrop-blur border-t border-white/5 py-4 px-6 flex justify-between text-gray-500 text-lg">
                                 <i class="fa-solid fa-house text-brand"></i>
                                 <i class="fa-solid fa-dumbbell hover:text-white transition"></i>
@@ -289,8 +276,8 @@
                 </div>
 
                 <div class="bg-white p-3 rounded-lg shadow-[0_0_30px_rgba(168,85,247,0.3)] group relative">
-                    <!-- QR Code (Recuerda cambiar el data=...) -->
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://tusitio.com/app-release.apk&color=000000&bgcolor=ffffff" alt="Descargar APK FitStart" class="w-40 h-40">
+                    <!-- QR Code apuntando al APK en GitHub -->
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://github.com/CaptainMarraqueta/FitStart/releases/download/v1.0.0/FitStart-1.0.0.apk&color=000000&bgcolor=ffffff" alt="Descargar APK FitStart" class="w-40 h-40">
                 </div>
             </div>
         </div>
@@ -306,7 +293,6 @@
         </div>
     </footer>
 
-    <!-- Scripts (Lógica) -->
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -325,15 +311,4 @@
             }
         });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-up');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
-    </script>
-</body>
-</html>
+        const observer =
